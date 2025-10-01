@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: stripe
+    description: transacciones bby
+    database: dbtdevelopment
+    schema: stripe
+    tables:
+      - name: payments
+        description: un pago por registro
+        columns:
+          - name: ID
+            description: es la clave primaria
+          - name: ORDERID
+            description: es la clave foránea de la tabla de órdenes
+          - name: PAYMENTMETHOD
+            description: es el método de pago
+          - name: status
+            description: es el estado del pago
+          - name: amount
+            description: es el monto del pago
+          - name: created
+            description: es la fecha de creación del registro

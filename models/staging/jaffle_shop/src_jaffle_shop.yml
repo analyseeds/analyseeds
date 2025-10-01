@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: la tienda en casa bby
+    database: dbtdevelopment
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        description: un cliente por registro
+        columns:
+          - name: ID
+            description: es la clave primaria
+          - name: FIRST_NAME
+            description: es el nombre del cliente
+          - name: LAST_NAME
+            description: es el apellido del cliente
+      - name: orders
+        description: una orden por registro
+        columns:
+          - name: ID
+            description: es la clave primaria
+          - name: USER_ID
+            description: es la clave foránea de la tabla de clientes
+          - name: ORDER_DATE
+            description: es la fecha en la que se realizó la orden
+          - name: STATUS
+            description: es el estado de la orden
