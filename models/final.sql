@@ -15,6 +15,13 @@ customer_orders as (
         {{ref('customer_orders')}}
 ),
 
+employees as (
+    select
+        *
+    from
+        {{ref('employees')}}
+),
+
 final as (
 
     select
@@ -23,10 +30,13 @@ final as (
         a.last_name,
         b.first_order_date,
         b.last_order_date,
-        b.num_orders
+        b.num_orders,
+        c.employee_id
     from
         customers as a left join customer_orders as b
-        using(customer_id)   
+        using(customer_id)
+        left join employees as c
+        using(customer_id)
 )
 
 select * from final
