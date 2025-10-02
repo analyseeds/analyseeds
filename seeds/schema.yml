@@ -1,0 +1,17 @@
+version: 2
+
+seeds:
+  - name: employees
+    description: un empleado por registro
+    columns:
+      - name: employee_id
+        description: es la clave primaria
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: es la clave foránea de la tabla de clientes
+        tests:
+          - relationships:
+              field: customer_id
+              to: ref('stg_customers')
